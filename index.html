@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8"><title>Finansia One · Catat uang jadi gampang</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Finansia One: dashboard keuangan pribadi di Google Sheets milik kamu. Sekali bayar, tanpa langganan. Mulai Rp49rb.">
+<meta property="og:title" content="Finansia One · Catat uang jadi gampang">
+<meta property="og:description" content="Dashboard keuangan pribadi di Google Sheets. Sekali bayar, mulai Rp49rb.">
+<meta property="og:image" content="img/dashboard.jpg">
+<meta name="theme-color" content="#1a0b14">
+<style>
+:root{--bg:#1a0b14;--bg2:#241019;--card:#2c1621;--tx:#fff1f6;--mut:#c4a2b2;--ac:#ff4d7e;--ac2:#ffb46b;--bd:#43263a;--sh:0 10px 30px rgba(0,0,0,.35)}
+[data-theme="light"]{--bg:#fff3f7;--bg2:#ffe6ee;--card:#fff;--tx:#2b1220;--mut:#7d5a6b;--bd:#f3cddb;--sh:0 10px 30px rgba(255,77,126,.14)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 20% -10%,rgba(255,77,126,.22),transparent 45%),radial-gradient(circle at 100% 20%,rgba(255,180,107,.12),transparent 40%),var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.col{max-width:480px;margin:0 auto;padding:22px 18px calc(40px + env(safe-area-inset-bottom,0px))}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--mut)}
+.tg{border:1px solid var(--bd);background:var(--card);color:var(--tx);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px}
+.prof{text-align:center;margin:10px 0 22px}
+.av{width:92px;height:92px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;font-size:42px;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 8px 28px rgba(255,77,126,.4)}
+h1{margin:4px 0 0;font-size:28px;letter-spacing:-.02em}
+.hd{color:var(--ac);font-weight:600;font-size:14px}
+.bio{color:var(--mut);margin:8px 8px 0}
+.sec{margin:28px 0 10px;display:flex;justify-content:space-between;align-items:baseline}
+.sec h3{margin:0;font-size:18px}.sec span{color:var(--mut);font-size:13px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:22px;box-shadow:var(--sh);overflow:hidden}
+.feat{position:relative}
+.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--ac);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;padding:4px 12px;border-radius:999px}
+.car{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.car::-webkit-scrollbar{display:none}
+.car>*{flex:0 0 100%;scroll-snap-align:center}
+.car img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;display:block;cursor:zoom-in}
+.fb{padding:16px 18px 18px}
+.fb small{color:var(--ac);font-weight:800;letter-spacing:.08em;font-size:11px}
+.fb h2{margin:4px 0 10px;font-size:21px;line-height:1.25}
+.fb ul{list-style:none;padding:0;margin:0 0 14px;font-size:15px}.fb li{padding:3px 0 3px 22px;position:relative}
+.fb li:before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:800}
+.price{font-size:14px;color:var(--mut);margin-bottom:12px}.price b{font-size:26px;color:var(--tx)}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--ac),#ff7a5c);padding:14px;border-radius:16px;box-shadow:0 8px 22px rgba(255,77,126,.35);margin-bottom:10px;transition:.15s}
+.btn:active{transform:scale(.98)}.btn.o{background:transparent;color:var(--tx);border:1.5px solid var(--bd);box-shadow:none}
+.lk{display:flex;gap:14px;align-items:center;padding:14px 16px;text-decoration:none;color:var(--tx);margin-bottom:10px;transition:.15s}
+.lk:hover{transform:translateY(-2px)}
+.lk .i{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,rgba(255,77,126,.25),rgba(255,180,107,.25));flex:none}
+.lk b{display:block;font-size:15px}.lk span{color:var(--mut);font-size:13px}
+.hs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.hs::-webkit-scrollbar{display:none}
+.hs figure{margin:0;flex:0 0 78%;scroll-snap-align:start}
+.hs img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;border-radius:16px;border:1px solid var(--bd);display:block;cursor:zoom-in}
+.hs figcaption{font-size:14px;font-weight:600;margin-top:6px}.hs figcaption span{display:block;color:var(--mut);font-weight:400;font-size:12px}
+.pk{padding:16px 18px;margin-bottom:12px;position:relative}
+.pk.f{border:2px solid var(--ac)}
+.pk .b{position:absolute;top:-11px;right:16px;background:var(--ac);color:#fff;font-size:11px;font-weight:800;padding:3px 12px;border-radius:999px}
+.pk h4{margin:0;font-size:17px}.pk .p{font-size:26px;font-weight:800;color:var(--ac);margin:2px 0 6px}
+.pk ul{list-style:none;padding:0;margin:0 0 12px;color:var(--mut);font-size:14px}.pk li{padding:2px 0 2px 20px;position:relative}.pk li:before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:800}
+.pk .btn{margin:0;padding:12px}
+details{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;font-size:15px}details p{color:var(--mut);margin:8px 0 0;font-size:15px}
+.chat{padding:18px}.chat .cl{color:var(--mut);font-size:12px;margin-bottom:8px}
+.bub{background:var(--bg2);border:1px solid var(--bd);border-radius:16px 16px 16px 4px;padding:12px 14px;margin-bottom:8px;font-size:15px;max-width:92%}
+.bub.me{background:linear-gradient(135deg,var(--ac),#ff7a5c);color:#fff;border:0;margin-left:auto;border-radius:16px 16px 4px 16px}
+.ok{color:#3ddc97;font-weight:700}
+.end{text-align:center;margin-top:34px;color:var(--mut);font-size:13px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
+#lb img{max-width:100%;max-height:100%;border-radius:10px}
+.rv{opacity:0;transform:translateY(18px);transition:.6s}.rv.in{opacity:1;transform:none}
+@media(min-width:700px){body{padding:20px 0}.hs figure{flex-basis:70%}}
+
+.cw,.hw{position:relative}
+.ar{display:none;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:rgba(20,8,14,.78);color:#fff;font-size:26px;line-height:1;cursor:pointer;z-index:3;backdrop-filter:blur(6px)}
+.ar.l{left:10px}.ar.r{right:10px}.ar:hover{background:var(--ac)}
+.hw .ar{top:42%}
+@media(min-width:900px){
+ body{font-size:17px;padding:10px 0 30px}
+ .col{max-width:1180px;padding:28px 32px 60px;display:grid;grid-template-columns:repeat(6,1fr);gap:0 24px;align-items:start}
+ .col>*{grid-column:span 6}
+ .top{font-size:15px}
+ .prof{margin:18px 0 34px}
+ .av{width:116px;height:116px;font-size:54px}
+ h1{font-size:48px}.hd{font-size:16px}
+ .bio{font-size:19px;max-width:620px;margin:10px auto 0}
+ .sec{margin:46px 0 16px}.sec h3{font-size:24px}.sec span{font-size:14px}
+ .feat{display:grid;grid-template-columns:1.45fr 1fr}
+ .feat .cw{grid-column:1;background:var(--bg2)}
+ .feat .fb{grid-column:2;padding:30px 30px 28px;display:flex;flex-direction:column;justify-content:center}
+ .feat .car img{aspect-ratio:auto;height:100%;object-fit:cover;min-height:420px}
+ .fb h2{font-size:28px}.fb ul{font-size:16px}.price b{font-size:32px}
+ .badge{font-size:12px;padding:5px 14px}
+ .ar{display:grid;place-items:center}
+ .lk{grid-column:span 3;padding:20px 22px;margin-bottom:14px}
+ .lk .i{width:56px;height:56px;font-size:26px}.lk b{font-size:17px}.lk span{font-size:14px}
+ .hs{gap:18px}.hs figure{flex:0 0 46%}
+ .hs img{aspect-ratio:1.95/1;object-fit:cover}
+ .hs figcaption{font-size:16px}.hs figcaption span{font-size:13px}
+ .pk{grid-column:span 2;padding:26px 24px;margin-bottom:0;height:100%}
+ .pk h4{font-size:20px}.pk .p{font-size:34px}.pk ul{font-size:15px}
+ #paket{grid-column:span 6}
+ details{grid-column:span 3;margin-bottom:14px;padding:18px 20px}
+ summary{font-size:16px}details p{font-size:16px}
+ .chat{grid-column:2 / span 4;padding:26px}
+ .bub{font-size:16px}
+ .end{font-size:14px}
+ #lb img{max-width:92%;max-height:92%}
+}
+@media(min-width:1400px){.col{max-width:1280px}.hs figure{flex-basis:40%}}
+</style></head><body>
+<div class="col">
+ <div class="top"><span>lynk.id/finansiaid</span><button class="tg" id="tg" aria-label="Ganti tema">🌙</button></div>
+ <div class="prof">
+  <div class="av">💸</div>
+  <div class="hd">hai!</div>
+  <h1>Finansia One</h1>
+  <div class="hd">@finansiaid</div>
+  <p class="bio">Dashboard keuangan pribadi di Google Sheets. Kamu yang catat, dashboard yang merapikan 📊</p>
+ </div>
+
+ <div class="sec"><h3>Aplikasi unggulan</h3><span>geser →</span></div>
+ <div class="card feat rv">
+  <span class="badge">TERSEDIA</span>
+  <div class="cw"><div class="car">
+   <img src="img/dashboard.jpg" alt="Dashboard">
+   <img src="img/monitor.jpg" alt="Monitor">
+   <img src="img/budgeting.jpg" alt="Budgeting">
+   <img src="img/investasi.jpg" alt="Investasi">
+  </div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
+  <div class="fb">
+   <small>FINANSIA ONE</small>
+   <h2>Catat uang tanpa ribet, langsung kelihatan ke mana larinya</h2>
+   <ul>
+    <li>Pemasukan, pengeluaran, budget, dan investasi dalam <b>satu dashboard</b></li>
+    <li>Jalan di <b>Google Sheets milik kamu</b> sendiri</li>
+    <li>Monitor budget: tahu <b>aman dibelanjakan per hari</b></li>
+    <li>Dibuka dari <b>HP maupun laptop</b></li>
+    <li>17+ tema warna, mode gelap/terang</li>
+   </ul>
+   <div class="price">mulai dari <b>Rp 49rb</b> · sekali bayar, tanpa langganan</div>
+   <a class="btn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">Lihat paketnya</a>
+   <a class="btn o" href="#tampilan" style="margin:0">Lihat tampilannya</a>
+  </div>
+ </div>
+
+ <div class="sec"><h3>Semua tautan</h3><span>klik aja</span></div>
+ <a class="card lk rv" href="https://lynk.id/finansiaid" target="_blank" rel="noopener"><div class="i">🛒</div><div><b>Beli Finansia One</b><span>Pilih Starter, Plus, atau Pro di lynk.id →</span></div></a>
+ <a class="card lk rv" href="#paket"><div class="i">🏷️</div><div><b>Harga &amp; isi paket</b><span>Rp 49rb, 99rb, 149rb · sekali bayar ↓</span></div></a>
+ <a class="card lk rv" href="#tampilan"><div class="i">🖼️</div><div><b>Lihat tampilan aplikasi</b><span>Dashboard, report, budgeting, investasi ↓</span></div></a>
+ <a class="card lk rv" href="#faq"><div class="i">💬</div><div><b>Pertanyaan yang sering ditanya</b><span>Harus bisa coding? Data disimpan di mana? ↓</span></div></a>
+
+ <div class="sec" id="tampilan"><h3>Tampilan aplikasi</h3><span>geser →</span></div>
+ <div class="hw rv"><div class="hs">
+  <figure><img src="img/dashboard.jpg" alt="Dashboard"><figcaption>Dashboard<span>saldo, arus kas, insight</span></figcaption></figure>
+  <figure><img src="img/report.jpg" alt="Report"><figcaption>Report<span>analisis &amp; perbandingan</span></figcaption></figure>
+  <figure><img src="img/monitor.jpg" alt="Monitor"><figcaption>Monitor<span>pengawas budget berjalan</span></figcaption></figure>
+  <figure><img src="img/budgeting.jpg" alt="Budgeting"><figcaption>Budgeting<span>pos rutin &amp; tambahan</span></figcaption></figure>
+  <figure><img src="img/spending.jpg" alt="Spending"><figcaption>Spending<span>catat pengeluaran</span></figcaption></figure>
+  <figure><img src="img/income.jpg" alt="Income"><figcaption>Income<span>sumber pemasukan</span></figcaption></figure>
+  <figure><img src="img/investasi.jpg" alt="Investasi"><figcaption>Investasi<span>untung/rugi portofolio</span></figcaption></figure>
+  <figure><img src="img/pengaturan.jpg" alt="Pengaturan"><figcaption>Pengaturan<span>tema, tekstur, avatar</span></figcaption></figure>
+ </div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
+
+ <div class="sec" id="paket"><h3>Pilih paket</h3><span>sekali bayar</span></div>
+ <div class="card pk rv"><h4>Finansia Starter</h4><div class="p">Rp 49rb</div>
+  <ul><li>Dashboard ringkasan keuangan</li><li>Catat pemasukan &amp; pengeluaran</li><li>Report, Spending, Income</li></ul>
+  <a class="btn o" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">Pilih Starter</a></div>
+ <div class="card pk f rv"><span class="b">⭐ POPULER</span><h4>Finansia Plus</h4><div class="p">Rp 99rb</div>
+  <ul><li>Semua fitur Starter</li><li>Budgeting &amp; Budget Progress</li><li>Monitor pengawas budget</li></ul>
+  <a class="btn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">Pilih Plus</a></div>
+ <div class="card pk rv"><h4>Finansia Pro</h4><div class="p">Rp 149rb</div>
+  <ul><li>Semua fitur Plus</li><li>Modul Investasi (portofolio)</li><li>Insight Keuangan &amp; semua add-on</li></ul>
+  <a class="btn o" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">Pilih Pro</a></div>
+
+ <div class="sec" id="faq"><h3>FAQ</h3><span>biar nggak penasaran</span></div>
+ <details><summary>Finansia One itu apa?</summary><p>Aplikasi web pencatatan keuangan pribadi yang berjalan di Google Sheets milik kamu: pemasukan, pengeluaran, budget, laporan, dan investasi dalam satu dashboard.</p></details>
+ <details><summary>Harus bisa coding?</summary><p>Tidak. Kamu mengikuti panduan langkah demi langkah untuk memasangnya di Google Sheets.</p></details>
+ <details><summary>Ada biaya bulanan?</summary><p>Tidak ada. Bayar sekali sesuai paket.</p></details>
+ <details><summary>Data aku disimpan di mana?</summary><p>Di Google Sheets milik akun Google kamu sendiri.</p></details>
+ <details><summary>Bisa dipakai di HP?</summary><p>Bisa. Berbentuk web, jadi bisa dibuka dari browser HP maupun laptop.</p></details>
+ <details><summary>Bisa upgrade paket nanti?</summary><p>Bisa. Fitur yang terkunci bisa dibuka lewat opsi upgrade di dalam aplikasi.</p></details>
+ <details><summary>Cara belinya gimana?</summary><p>Klik tombol beli, pilih paket di halaman lynk.id, lalu selesaikan pembayaran. Panduan dikirim setelahnya.</p></details>
+
+ <div class="sec"><h3>Giliranmu</h3><span>mulai dari catatan pertama</span></div>
+ <div class="card chat rv">
+  <div class="cl">Contoh alurnya</div>
+  <div class="bub me">Gaji masuk hari ini 💰</div>
+  <div class="bub">Tercatat di <b>Income</b> <span class="ok">✓</span><br>Dashboard, Report, dan Budget ikut terupdate.</div>
+  <div class="bub me">Makan siang 35rb</div>
+  <div class="bub">Masuk kategori <b>Kebutuhan Pokok</b> <span class="ok">✓</span><br>Monitor: masih <b>aman</b> dibelanjakan hari ini.</div>
+  <a class="btn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener" style="margin-top:14px">Mulai catat keuanganmu</a>
+  <div class="price" style="text-align:center;margin:0">Rp 49rb · sekali bayar · tanpa langganan</div>
+ </div>
+ <div class="end">© 2026 Finansia One · sampai jumpa di dashboard 👋</div>
+</div>
+<div id="lb"><img alt=""></div>
+<script>
+const r=document.documentElement,t=document.getElementById('tg');
+t.onclick=()=>{const l=r.dataset.theme==='light';r.dataset.theme=l?'':'light';t.textContent=l?'🌙':'☀️'};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+const lb=document.getElementById('lb');
+document.querySelectorAll('.car img,.hs img').forEach(i=>i.onclick=()=>{lb.firstElementChild.src=i.src;lb.style.display='flex'});
+lb.onclick=()=>lb.style.display='none';
+document.querySelectorAll('.ar').forEach(b=>b.onclick=()=>{const c=b.parentElement.firstElementChild;c.scrollBy({left:(b.classList.contains('r')?1:-1)*c.clientWidth*0.8,behavior:'smooth'})});
+
+</script></body></html>
