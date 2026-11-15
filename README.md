@@ -1,2 +1,0 @@
-# Finansia
-Digital product
