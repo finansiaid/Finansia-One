@@ -200,6 +200,10 @@ body{background:radial-gradient(circle at 50% -10%,#10402c,#07170f 60%)!importan
  .feat .fb{max-width:860px;margin:0 auto;padding:30px 30px 32px}
  .feat .fb .btn{margin-bottom:10px}
 }
+
+.vd{padding:18px 16px;text-align:center}
+.vd video{display:block;margin:0 auto;width:min(100%,330px);aspect-ratio:480/980;background:#000;border-radius:24px;border:6px solid #050d09;box-shadow:var(--sh)}
+.vd p{margin:12px 0 0;color:var(--mut);font-size:14px}
 </style></head><body><div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="col">
  <div class="top"><a class="lkbtn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">🔗 lynk.id/finansiaid</a><button class="tg" id="tg" aria-label="Ganti tema">☀️</button></div>
@@ -263,6 +267,12 @@ body{background:radial-gradient(circle at 50% -10%,#10402c,#07170f 60%)!importan
   <figure class="card"><blockquote>Pasangnya ternyata gampang, ikut panduan PDF sekitar 10 menit. Catat dari HP tinggal 10 detik.</blockquote><figcaption><b>Sari</b><span>Guru · Paket Starter</span></figcaption></figure>
   <figure class="card"><blockquote>Bagian investasinya enak buat lihat untung rugi portofolio tanpa buka banyak aplikasi.</blockquote><figcaption><b>Bagas</b><span>Pegawai BUMN · Paket Pro</span></figcaption></figure>
  </div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
+
+ <div class="sec" id="video"><h3>Lihat demonya</h3><span>video singkat</span></div>
+ <div class="card vd rv">
+  <video controls playsinline preload="metadata" poster="demo-poster.jpg?v=10"><source src="demo.mp4?v=10" type="video/mp4">Browser kamu belum mendukung video.</video>
+  <p>Video pemakaian Finansia One di HP. Tekan putar untuk melihat.</p>
+ </div>
 
  <div class="sec" id="demo"><h3>Coba dulu sebelum beli</h3><span>tanpa daftar</span></div>
  <div class="card dm rv">
@@ -407,7 +417,7 @@ const CFG={
  DEMO:{
   starter:'https://script.google.com/macros/s/AKfycbz9Or36NUbDDL4FJrTePDKkB8XAm01uFJV70fPori7BY_pEwGQsXtL0Ali8pD1QojKhfQ/exec',
   plus:'https://script.google.com/macros/s/AKfycbySzHazL7CZAgcKbgGYZMesItCaf4iIVYTTze_XhDKhGLYYx-MRu80-7yB7wpgQLe-E/exec',
-  pro:'https://script.google.com/macros/s/AKfycbwLVrURn_VkS6jHpUrd-yG5D_G7U9-klhR_5QAkQixwnQokmHmnYASYdQDdn6r0Z70w2A/exec?b=1oYFgKfCadRjQKgPxBpCzeixdwnk5723KXeALlvtrKys'
+  pro:'https://script.google.com/macros/s/AKfycbzrEDl9Z1bLevH3tCTC57mwKXTjSsv9nPvo8qmBm0WrXvwP72wymGTWrSuTrHblG_Rl/exec'
  },
  PROMO:{
   KODE:'FINANSIA50',   // sama persis dengan kode voucher di dashboard lynk.id
@@ -464,6 +474,34 @@ document.querySelectorAll('.car img,.hs img,.ph img').forEach(i=>i.onclick=()=>{
 lb.onclick=()=>lb.style.display='none';
 document.querySelectorAll('.ar').forEach(b=>b.onclick=()=>{const c=b.parentElement.firstElementChild;c.scrollBy({left:(b.classList.contains('r')?1:-1)*c.clientWidth*0.8,behavior:'smooth'})});
 
+
+
+/* ====== CAROUSEL OTOMATIS ====== */
+(function(){
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ function auto(el,ms,align){
+  const kids=[...el.children];if(kids.length<2)return;
+  let paused=false,vis=false,resume=null;
+  const delta=k=>{const a=k.getBoundingClientRect(),b=el.getBoundingClientRect();return align==='center'?(a.left+a.width/2)-(b.left+b.width/2):a.left-b.left};
+  function cur(){let bi=0,bd=1e9;kids.forEach((k,i)=>{const d=Math.abs(delta(k));if(d<bd){bd=d;bi=i}});return bi}
+  function next(){
+   if(paused||!vis||document.hidden)return;
+   const i=cur();
+   if(i>=kids.length-1)el.scrollTo({left:0,behavior:'smooth'});
+   else el.scrollBy({left:delta(kids[i+1]),behavior:'smooth'});
+  }
+  const hold=()=>{paused=true;clearTimeout(resume)};
+  const go=(d)=>{clearTimeout(resume);resume=setTimeout(()=>paused=false,d)};
+  el.addEventListener('mouseenter',hold);el.addEventListener('mouseleave',()=>go(800));
+  el.addEventListener('pointerdown',()=>{hold();go(6000)});
+  el.addEventListener('touchstart',()=>{hold();go(6000)},{passive:true});
+  el.parentElement.querySelectorAll('.ar').forEach(b=>b.addEventListener('click',()=>{hold();go(6000)}));
+  new IntersectionObserver(es=>es.forEach(e=>vis=e.isIntersecting),{threshold:.4}).observe(el);
+  setInterval(next,ms);
+ }
+ const c=document.querySelector('.car'),h=document.querySelector('.hs'),p=document.querySelector('.ph');
+ if(c)auto(c,3500,'start');if(h)auto(h,3200,'start');if(p)auto(p,2800,'center');
+})();
 
 const f2=document.querySelector('.bgfx');for(let i=0;i<46;i++){const s=document.createElement('s');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(-Math.random()*3.5)+'s';s.style.animationDuration=(2.5+Math.random()*3)+'s';f2.appendChild(s)}
 </script></body></html>
