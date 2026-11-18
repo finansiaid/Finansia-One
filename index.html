@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light"><head><meta charset="utf-8"><title>Finansia One · Catat uang jadi gampang</title>
+<html lang="id" data-theme=""><head><meta charset="utf-8"><title>Finansia One · Catat uang jadi gampang</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Finansia One: dashboard keuangan pribadi di Google Sheets milik kamu. Sekali bayar, tanpa langganan. Mulai Rp49rb.">
+<meta name="description" content="Gajian tanggal 25? Bulan keuanganmu juga mulai tanggal 25. Tahu berapa yang aman dibelanjakan hari ini. Google Sheets milikmu, sekali bayar mulai Rp49rb.">
 <meta property="og:title" content="Finansia One · Catat uang jadi gampang">
 <meta property="og:description" content="Dashboard keuangan pribadi di Google Sheets. Sekali bayar, mulai Rp49rb.">
-<meta property="og:image" content="banner.jpg">
-<link rel="icon" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
-<meta name="theme-color" content="#fff3f7">
+<meta property="og:image" content="img/banner.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<meta name="theme-color" content="#07170f">
 <style>
 :root{--bg:#1a0b14;--bg2:#241019;--card:#2c1621;--tx:#fff1f6;--mut:#c4a2b2;--ac:#ff4d7e;--ac2:#ffb46b;--bd:#43263a;--sh:0 10px 30px rgba(0,0,0,.35)}
 [data-theme="light"]{--bg:#fff3f7;--bg2:#ffe6ee;--card:#fff;--tx:#2b1220;--mut:#7d5a6b;--bd:#f3cddb;--sh:0 10px 30px rgba(255,77,126,.14)}
@@ -133,88 +133,212 @@ summary{cursor:pointer;font-weight:700;font-size:15px}details p{color:var(--mut)
 .flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px;font-size:12px}
 .flow span{background:var(--ac2,rgba(255,77,126,.15));border:1px solid var(--bd);border-radius:999px;padding:4px 11px;font-weight:700}
 .flow i{font-style:normal;color:var(--ac);font-weight:800}
-</style></head><body>
+
+.tm{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 10px}.tm::-webkit-scrollbar{display:none}
+.tm figure{margin:0;flex:0 0 82%;scroll-snap-align:start;padding:18px}
+.tm blockquote{margin:0 0 12px;font-size:15px;line-height:1.55}.tm figcaption b{display:block}.tm figcaption span{color:var(--mut);font-size:13px}
+.dm{padding:18px}.dm p{margin:0 0 12px;color:var(--mut)}
+.dmg{display:grid;gap:10px}.dmg .btn{margin:0}.dmg small{display:block;font-weight:500;font-size:12px;opacity:.85}
+.dmb{margin:10px 0 0!important;padding:10px!important;font-size:14px}
+.gr{padding:6px 18px}.gr ul{list-style:none;margin:0;padding:0}.gr li{padding:12px 0 12px 26px;position:relative;border-bottom:1px solid var(--bd);font-size:15px}.gr li:last-child{border-bottom:0}.gr li:before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:800}.gr a{color:var(--ac);font-weight:700}
+.btn:focus-visible,summary:focus-visible,.ar:focus-visible,.lkbtn:focus-visible{outline:3px solid var(--ac2);outline-offset:2px}
+@media(min-width:900px){.tm figure{flex:0 0 31%}.dm{padding:26px 30px}.dmg{grid-template-columns:repeat(3,1fr)}.gr{padding:8px 26px}.gr li{font-size:16px}.tm blockquote{font-size:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{transition:none}}
+
+.promo{padding:20px 18px;border:2px solid var(--ac);position:relative}
+.promo .pt{display:inline-block;background:var(--ac);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;padding:4px 12px;border-radius:999px;margin-bottom:8px}
+.promo h3{margin:0 0 6px;font-size:21px;line-height:1.25}.promo p{margin:0 0 14px;color:var(--mut);font-size:15px}
+.pg{height:12px;border-radius:999px;background:var(--bg2);border:1px solid var(--bd);overflow:hidden}
+.pgb{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .8s}
+.pgt{font-size:13px;color:var(--mut);margin:6px 0 14px}.pgt b{color:var(--tx)}
+.pp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.pp button{font:inherit;color:var(--tx);background:var(--bg2);border:1.5px solid var(--bd);border-radius:14px;padding:10px 6px;cursor:pointer;text-align:center;line-height:1.3}
+.pp button[aria-pressed="true"]{border-color:var(--ac);background:rgba(255,77,126,.12);box-shadow:0 0 0 2px rgba(255,77,126,.25)}
+.pp b{display:block;font-size:14px}.pp s{display:block;color:var(--mut);font-size:12px}.pp em{display:block;font-style:normal;color:var(--ac);font-weight:800;font-size:16px}
+.btn.off{background:var(--bd);color:var(--mut);box-shadow:none;pointer-events:none}
+.vc{margin-top:12px;padding:12px 14px;border:1px dashed var(--ac);border-radius:14px;font-size:14px;background:var(--bg2)}
+.vc code{font-size:16px;font-weight:800;letter-spacing:.06em;color:var(--ac)}
+.vc button{font:inherit;font-size:13px;font-weight:700;margin-left:8px;padding:4px 12px;border-radius:999px;border:1px solid var(--ac);background:transparent;color:var(--ac);cursor:pointer}
+.vc small{display:block;color:var(--mut);margin-top:6px}
+.fine{color:var(--mut);font-size:12.5px;margin:10px 0 0}
+.phint{display:block;margin:-2px 0 12px;font-size:14px;color:var(--mut)}.phint a{color:var(--ac);font-weight:700}
+@media(min-width:900px){.promo{padding:28px 32px;max-width:760px;margin:0 auto}.promo h3{font-size:26px}.pp b{font-size:15px}.pp em{font-size:19px}}
+
+.pp .c{background:var(--bg2);border:1.5px solid var(--bd);border-radius:14px;padding:10px 6px;text-align:center;line-height:1.3}
+.pp .c b{display:block;font-size:14px}.pp .c s{display:block;color:var(--mut);font-size:12px}.pp .c em{display:block;font-style:normal;color:var(--ac);font-weight:800;font-size:16px}
+button.btn{width:100%;border:0;font:inherit;font-weight:800;cursor:pointer}
+.md{position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px}.md[hidden]{display:none}
+.mb{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:22px;max-width:420px;width:100%;padding:24px 20px 18px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.5);max-height:92vh;overflow:auto}
+.mb h3{margin:0 0 4px;font-size:20px}.mb p{margin:0 0 12px;color:var(--mut);font-size:14px}
+.mx{position:absolute;top:10px;right:12px;width:36px;height:36px;border-radius:50%;border:1px solid var(--bd);background:var(--bg2);color:var(--tx);font-size:20px;cursor:pointer}
+.mc{display:flex;gap:10px;align-items:center;justify-content:space-between;border:2px dashed var(--ac);border-radius:16px;padding:12px 14px;background:var(--bg2);margin-bottom:12px}
+.mc code{font-size:22px;font-weight:800;letter-spacing:.08em;color:var(--ac)}
+.mc button{font:inherit;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;border:0;background:var(--ac);color:#fff;cursor:pointer}
+.mb .btn{margin:0 0 8px;padding:12px;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:8px}.mb .btn small{font-weight:600;opacity:.9}
+.ig{color:var(--ac);font-weight:700}
+.bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+:root{--bg:#07170f;--bg2:#0d2619;--card:#10301f;--tx:#f1fbf5;--mut:#9fc7b0;--bd:#1d4d35;--ac:#e9b949;--ac2:#34c98e;--sh:0 12px 34px rgba(0,0,0,.45)}
+body{background:radial-gradient(circle at 50% -10%,#10402c,#07170f 60%)!important}
+.btn,.lkbtn,.badge,.pk .b,.promo .pt,.mc button{background:linear-gradient(135deg,#f2c14e,#d99a1c)!important;color:#241a02!important;box-shadow:0 8px 24px rgba(233,185,73,.3)!important}
+.btn.o{background:transparent!important;color:var(--tx)!important;box-shadow:none!important}
+.pk.f,.promo{border-color:#e9b949!important}.hd,.fb small{color:#e9b949}
+.bgfx i{position:absolute;border-radius:50%;filter:blur(80px);animation:dr 14s ease-in-out infinite alternate}
+.bgfx i:nth-child(1){width:520px;height:520px;left:-100px;top:10%;background:rgba(52,201,142,.32)}
+.bgfx i:nth-child(2){width:460px;height:460px;right:-80px;top:-60px;background:rgba(233,185,73,.26);animation-delay:-6s}
+.bgfx i:nth-child(3){width:560px;height:560px;right:10%;bottom:-160px;background:rgba(52,201,142,.22);animation-delay:-3s}
+.bgfx s{position:absolute;width:3px;height:3px;border-radius:50%;background:#f6d27a;box-shadow:0 0 8px 2px rgba(246,210,122,.7);animation:tw 3.5s ease-in-out infinite}
+@keyframes dr{to{transform:translate(70px,60px) scale(1.15)}}
+@keyframes tw{0%,100%{opacity:.1}50%{opacity:1}}
+.tg{display:none!important}
+.hs figcaption,.ph figcaption{color:var(--tx)}
+@media(prefers-reduced-motion:reduce){.bgfx i,.bgfx s{animation:none!important}.bgfx s{opacity:.5}}
+</style></head><body><div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="col">
  <div class="top"><a class="lkbtn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">🔗 lynk.id/finansiaid</a><button class="tg" id="tg" aria-label="Ganti tema">☀️</button></div>
  <div class="prof">
-  <div class="cover"><img src="banner.jpg" alt="finansiaid · Belajar atur uang, tanpa ribet"></div>
-  <img class="logo" src="logo.png" alt="Logo Finansia">
+  <div class="cover"><img src="img/banner.jpg" alt="finansiaid · Belajar atur uang, tanpa ribet"></div>
+  <img class="logo" src="img/logo.png" alt="Logo Finansia">
   <div class="hd">hai!</div>
   <h1>Finansia One</h1>
   <div class="hd">@finansiaid</div>
-  <p class="bio">Dashboard keuangan pribadi di Google Sheets. Kamu yang catat, dashboard yang merapikan 📊</p>
+  <p class="bio">Gajian tanggal 25? Bulan keuanganmu juga mulai tanggal 25. Lihat berapa yang <b>aman dibelanjakan hari ini</b> 📊</p>
  </div>
 
  <div class="sec"><h3>Aplikasi unggulan</h3><span>geser →</span></div>
  <div class="card feat rv">
-  <span class="badge">TERSEDIA</span>
+  <span class="badge">SEKALI BAYAR</span>
   <div class="cw"><div class="car">
-   <img src="dashboard.jpg" alt="Dashboard">
-   <img src="monitor.jpg" alt="Monitor">
-   <img src="budgeting.jpg" alt="Budgeting">
-   <img src="investasi.jpg" alt="Investasi">
+   <img src="img/dashboard.jpg" alt="Dashboard">
+   <img src="img/monitor.jpg" alt="Monitor">
+   <img src="img/budgeting.jpg" alt="Budgeting">
+   <img src="img/investasi.jpg" alt="Investasi">
   </div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
   <div class="fb">
    <small>FINANSIA ONE</small>
-   <h2>Catat uang tanpa ribet, langsung kelihatan ke mana larinya</h2>
+   <h2>Tahu berapa yang aman kamu belanjakan hari ini, dengan bulan yang tutup di tanggal gajianmu</h2>
    <ul>
-    <li>Pemasukan, pengeluaran, budget, dan investasi dalam <b>satu dashboard</b></li>
-    <li>Jalan di <b>Google Sheets milik kamu</b> sendiri</li>
+    <li><b>Tutup buku sesuai tanggal gajian</b> (mis. 24 Okt–23 Nov), bukan 1–30</li>
     <li>Monitor budget: tahu <b>aman dibelanjakan per hari</b></li>
-    <li>Dibuka dari <b>HP maupun laptop</b></li>
-    <li>17+ tema warna, mode gelap/terang</li>
+    <li>Pemasukan, pengeluaran, budget, dan investasi dalam <b>satu dashboard</b></li>
+    <li>Jalan di <b>Google Sheets milik kamu</b> sendiri, dibuka dari <b>HP maupun laptop</b></li>
+    <li>Pasang sekitar <b>10 menit</b> dengan panduan, tanpa coding</li>
    </ul>
    <div class="price">mulai dari <b>Rp 49rb</b> · sekali bayar, tanpa langganan</div>
-   <a class="btn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener">Lihat paketnya</a>
+   <a class="btn" href="#demo">Coba demo gratis</a>
+   <a class="btn o" href="#paket" style="margin-bottom:10px">Lihat paket &amp; harga</a>
    <a class="btn o" href="#tampilan" style="margin:0">Lihat tampilannya</a>
   </div>
  </div>
 
+
+ <div class="sec" id="promo"><h3>Penawaran khusus</h3><span>kuota terbatas</span></div>
+ <div class="card promo rv">
+  <span class="pt">PROMO DISKON 50%</span>
+  <h3>Diskon 50% untuk 100 pembeli pertama</h3>
+  <p>Berlaku untuk paket Starter, Plus, atau Pro. Setelah 100 slot terpakai, harga kembali normal.</p>
+  <div class="pg" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="pgr"><div class="pgb" id="pgb"></div></div>
+  <div class="pgt" id="pgt"></div>
+  <div class="pp">
+   <div class="c"><b>Starter</b><s>Rp 49.000</s><em>Rp 24.500</em></div>
+   <div class="c"><b>Plus</b><s>Rp 99.000</s><em>Rp 49.500</em></div>
+   <div class="c"><b>Pro</b><s>Rp 149.000</s><em>Rp 74.500</em></div>
+  </div>
+  <button type="button" class="btn" id="pgo">Ambil kode promo</button>
+  <p class="fine">Klik tombol untuk melihat kode promo dan link ke produk. 1 kode untuk 1 pembelian. Counter menghitung orang yang sudah mengambil kode.</p>
+ </div>
+
+ <!-- CONTOH/DUMMY: ganti dengan testimoni asli pembeli sebelum dipublikasikan -->
+ <div class="sec" id="testimoni"><h3>Kata mereka yang sudah pakai</h3><span>geser →</span></div>
+ <div class="hw rv"><div class="tm">
+  <figure class="card"><blockquote>Dulu akhir bulan bingung uang habis ke mana. Sekarang tinggal buka Monitor, langsung tahu sisa jatah harian.</blockquote><figcaption><b>Rina</b><span>Karyawan swasta · Paket Plus</span></figcaption></figure>
+  <figure class="card"><blockquote>Tutup buku di tanggal gajian ini yang bikin aku pindah dari template gratis. Nggak perlu utak-atik rumus lagi.</blockquote><figcaption><b>Dimas</b><span>Freelancer · Paket Pro</span></figcaption></figure>
+  <figure class="card"><blockquote>Pasangnya ternyata gampang, ikut panduan PDF sekitar 10 menit. Catat dari HP tinggal 10 detik.</blockquote><figcaption><b>Sari</b><span>Guru · Paket Starter</span></figcaption></figure>
+  <figure class="card"><blockquote>Bagian investasinya enak buat lihat untung rugi portofolio tanpa buka banyak aplikasi.</blockquote><figcaption><b>Bagas</b><span>Pegawai BUMN · Paket Pro</span></figcaption></figure>
+ </div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
+
+ <div class="sec" id="demo"><h3>Coba dulu sebelum beli</h3><span>tanpa daftar</span></div>
+ <div class="card dm rv">
+  <p>Buka aplikasi dengan <b>data contoh</b>. Semua orang bisa melihat, tapi data tidak bisa diubah. Tiap paket punya akun demo sendiri, jadi kamu bisa lihat persis fitur yang kamu dapat:</p>
+  <div class="dmg">
+   <a class="btn o" data-demo="starter" href="#demo" target="_blank" rel="noopener">Demo Starter<small>Rp 49rb · pencatatan</small></a>
+   <a class="btn" data-demo="plus" href="#demo" target="_blank" rel="noopener">Demo Plus<small>Rp 99rb · + Budgeting &amp; Monitor</small></a>
+   <a class="btn o" data-demo="pro" href="#demo" target="_blank" rel="noopener">Demo Pro<small>Rp 149rb · semua fitur</small></a>
+  </div>
+  <div class="price" style="margin:6px 0 0">Mode demo: data contoh, tidak tersimpan. Beli paket untuk memakai data sendiri.</div>
+ </div>
+
  <div class="sec"><h3>Semua tautan</h3><span>klik aja</span></div>
+ <a class="card lk rv" href="#demo"><div class="i">▶️</div><div><b>Coba demo gratis</b><span>Starter, Plus, atau Pro dengan data contoh ↓</span></div></a>
  <a class="card lk rv" href="https://lynk.id/finansiaid" target="_blank" rel="noopener"><div class="i">🛒</div><div><b>Beli Finansia One</b><span>Pilih Starter, Plus, atau Pro di lynk.id →</span></div></a>
  <a class="card lk rv" href="#paket"><div class="i">🏷️</div><div><b>Harga &amp; isi paket</b><span>Rp 49rb, 99rb, 149rb · sekali bayar ↓</span></div></a>
  <a class="card lk rv" href="#tampilan"><div class="i">🖼️</div><div><b>Lihat tampilan aplikasi</b><span>Dashboard, report, budgeting, investasi ↓</span></div></a>
+ <a class="card lk rv" href="https://www.instagram.com/finansiaid/" target="_blank" rel="noopener"><div class="i">📩</div><div><b>Tanya dulu via Instagram</b><span>Chat @finansiaid sebelum membeli →</span></div></a>
  <a class="card lk rv" href="#faq"><div class="i">💬</div><div><b>Pertanyaan yang sering ditanya</b><span>Harus bisa coding? Data disimpan di mana? ↓</span></div></a>
 
  <div class="sec" id="tampilan"><h3>Tampilan aplikasi</h3><span>geser →</span></div>
  <div class="hw rv"><div class="hs">
-  <figure><img src="dashboard.jpg" alt="Dashboard"><figcaption>Dashboard<span>saldo, arus kas, insight</span></figcaption></figure>
-  <figure><img src="report.jpg" alt="Report"><figcaption>Report<span>analisis &amp; perbandingan</span></figcaption></figure>
-  <figure><img src="monitor.jpg" alt="Monitor"><figcaption>Monitor<span>pengawas budget berjalan</span></figcaption></figure>
-  <figure><img src="budgeting.jpg" alt="Budgeting"><figcaption>Budgeting<span>pos rutin &amp; tambahan</span></figcaption></figure>
-  <figure><img src="spending.jpg" alt="Spending"><figcaption>Spending<span>catat pengeluaran</span></figcaption></figure>
-  <figure><img src="income.jpg" alt="Income"><figcaption>Income<span>sumber pemasukan</span></figcaption></figure>
-  <figure><img src="investasi.jpg" alt="Investasi"><figcaption>Investasi<span>untung/rugi portofolio</span></figcaption></figure>
-  <figure><img src="pengaturan.jpg" alt="Pengaturan"><figcaption>Pengaturan<span>tema, tekstur, avatar</span></figcaption></figure>
+  <figure><img src="img/dashboard.jpg" alt="Dashboard"><figcaption>Dashboard<span>saldo, arus kas, insight</span></figcaption></figure>
+  <figure><img src="img/report.jpg" alt="Report"><figcaption>Report<span>analisis &amp; perbandingan</span></figcaption></figure>
+  <figure><img src="img/monitor.jpg" alt="Monitor"><figcaption>Monitor<span>pengawas budget berjalan</span></figcaption></figure>
+  <figure><img src="img/budgeting.jpg" alt="Budgeting"><figcaption>Budgeting<span>pos rutin &amp; tambahan</span></figcaption></figure>
+  <figure><img src="img/spending.jpg" alt="Spending"><figcaption>Spending<span>catat pengeluaran</span></figcaption></figure>
+  <figure><img src="img/income.jpg" alt="Income"><figcaption>Income<span>sumber pemasukan</span></figcaption></figure>
+  <figure><img src="img/investasi.jpg" alt="Investasi"><figcaption>Investasi<span>untung/rugi portofolio</span></figcaption></figure>
+  <figure><img src="img/pengaturan.jpg" alt="Pengaturan"><figcaption>Pengaturan<span>tema, tekstur, avatar</span></figcaption></figure>
  </div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
 
  <div class="sec" id="hp"><h3>Tampilan di HP</h3><span>geser →</span></div>
- <div class="hw rv"><div class="ph"><figure><img src="m-beranda.jpg" alt="Beranda versi HP" loading="lazy"><figcaption>Beranda<span>ringkasan cepat</span></figcaption></figure><figure><img src="m-pengeluaran.jpg" alt="Pengeluaran versi HP" loading="lazy"><figcaption>Pengeluaran<span>catat &amp; lihat riwayat</span></figcaption></figure><figure><img src="m-report.jpg" alt="Report versi HP" loading="lazy"><figcaption>Report<span>analisis &amp; tren</span></figcaption></figure><figure><img src="m-monitor.jpg" alt="Monitor versi HP" loading="lazy"><figcaption>Monitor<span>aman dibelanjakan/hari</span></figcaption></figure><figure><img src="m-budgeting.jpg" alt="Budgeting versi HP" loading="lazy"><figcaption>Budgeting<span>rencana per bulan</span></figcaption></figure><figure><img src="m-pemasukan.jpg" alt="Pemasukan versi HP" loading="lazy"><figcaption>Pemasukan<span>riwayat per bulan</span></figcaption></figure><figure><img src="m-investasi.jpg" alt="Investasi versi HP" loading="lazy"><figcaption>Investasi<span>untung/rugi live</span></figcaption></figure><figure><img src="m-rekap.jpg" alt="Rekap versi HP" loading="lazy"><figcaption>Rekap<span>capture &amp; print/PDF</span></figcaption></figure><figure><img src="m-pengaturan.jpg" alt="Pengaturan versi HP" loading="lazy"><figcaption>Pengaturan<span>tema warna &amp; tekstur</span></figcaption></figure></div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
+ <div class="hw rv"><div class="ph"><figure><img src="img/m-beranda.jpg" alt="Beranda versi HP" loading="lazy"><figcaption>Beranda<span>ringkasan cepat</span></figcaption></figure><figure><img src="img/m-pengeluaran.jpg" alt="Pengeluaran versi HP" loading="lazy"><figcaption>Pengeluaran<span>catat &amp; lihat riwayat</span></figcaption></figure><figure><img src="img/m-report.jpg" alt="Report versi HP" loading="lazy"><figcaption>Report<span>analisis &amp; tren</span></figcaption></figure><figure><img src="img/m-monitor.jpg" alt="Monitor versi HP" loading="lazy"><figcaption>Monitor<span>aman dibelanjakan/hari</span></figcaption></figure><figure><img src="img/m-budgeting.jpg" alt="Budgeting versi HP" loading="lazy"><figcaption>Budgeting<span>rencana per bulan</span></figcaption></figure><figure><img src="img/m-pemasukan.jpg" alt="Pemasukan versi HP" loading="lazy"><figcaption>Pemasukan<span>riwayat per bulan</span></figcaption></figure><figure><img src="img/m-investasi.jpg" alt="Investasi versi HP" loading="lazy"><figcaption>Investasi<span>untung/rugi live</span></figcaption></figure><figure><img src="img/m-rekap.jpg" alt="Rekap versi HP" loading="lazy"><figcaption>Rekap<span>capture &amp; print/PDF</span></figcaption></figure><figure><img src="img/m-pengaturan.jpg" alt="Pengaturan versi HP" loading="lazy"><figcaption>Pengaturan<span>tema warna &amp; tekstur</span></figcaption></figure></div><button class="ar l" aria-label="Sebelumnya">‹</button><button class="ar r" aria-label="Berikutnya">›</button></div>
 
  <div class="sec" id="beda"><h3>Kenapa bukan langganan?</h3><span>sekali bayar</span></div>
  <div class="card cmp rv"><table>
-  <thead><tr><th>Aspek</th><th>Finansia One</th><th>Aplikasi langganan (umumnya)</th></tr></thead>
+  <thead><tr><th>Aspek</th><th>Finansia One</th><th>Template gratis / Excel</th><th>Aplikasi langganan</th></tr></thead>
   <tbody>
-   <tr><td>Biaya</td><td>Sekali bayar, mulai Rp49rb</td><td>Tagihan tiap bulan atau tahun</td></tr>
-   <tr><td>Kalau berhenti bayar</td><td>Aplikasi tetap milikmu, tanpa tagihan lanjutan</td><td>Akses bisa dibatasi atau terkunci</td></tr>
-   <tr><td>Data keuangan</td><td>Di Google Sheets milik akunmu sendiri</td><td>Di server penyedia aplikasi</td></tr>
-   <tr><td>Periode bulanan</td><td>Atur tutup buku sesuai tanggal gajian (mis. 24 Okt–23 Nov)</td><td>Umumnya mengikuti kalender 1–30</td></tr>
-   <tr><td>Laporan</td><td>Rekap pilih bulan, capture gambar, print/PDF</td><td>Bervariasi, sering fitur berbayar</td></tr>
-   <tr><td>Tampilan</td><td>17+ tema warna, tekstur, wallpaper</td><td>Biasanya terbatas</td></tr>
-   <tr><td>Naik level</td><td>Upgrade paket kapan saja di dalam aplikasi</td><td>Ganti paket langganan</td></tr>
+   <tr><td>Biaya</td><td>Sekali bayar, mulai Rp49rb</td><td>Gratis</td><td>Tagihan tiap bulan atau tahun</td></tr>
+   <tr><td>Periode bulanan</td><td>Tutup buku sesuai tanggal gajian (mis. 24 Okt–23 Nov), otomatis</td><td>Atur rumus manual, sering rusak</td><td>Umumnya mengikuti kalender 1–30</td></tr>
+   <tr><td>Aman dibelanjakan per hari</td><td>Dihitung otomatis oleh Monitor</td><td>Buat rumus sendiri</td><td>Bervariasi</td></tr>
+   <tr><td>Tampilan HP</td><td>Layout khusus HP</td><td>Tabel Sheets, sempit di layar kecil</td><td>Ya</td></tr>
+   <tr><td>Salah ketik merusak rumus</td><td>Tidak, input lewat form</td><td>Sering terjadi</td><td>Tidak</td></tr>
+   <tr><td>Data keuangan</td><td>Di Google Sheets milik akunmu</td><td>Di file milikmu</td><td>Di server penyedia aplikasi</td></tr>
+   <tr><td>Laporan</td><td>Rekap pilih bulan, capture gambar, print/PDF</td><td>Buat sendiri</td><td>Sering fitur berbayar</td></tr>
+   <tr><td>Kalau berhenti bayar</td><td>Aplikasi tetap milikmu</td><td>Tetap milikmu</td><td>Akses bisa dibatasi atau terkunci</td></tr>
   </tbody></table></div>
+ <div class="card save rv"><b>Sudah nyaman dengan template gratis?</b><p>Bagus. Finansia One cocok kalau kamu capek memperbaiki rumus tiap bulan dan ingin mencatat dari HP dalam 10 detik.</p></div>
  <div class="card save rv"><b>Contoh hitungan hemat</b><p>Langganan Rp30.000/bulan = <b>Rp360.000/tahun</b>, atau Rp1.080.000 dalam 3 tahun. Finansia Pro cukup <b>Rp149.000 sekali bayar</b>. (Angka langganan hanya ilustrasi, bukan harga produk tertentu.)</p></div>
 
  <div class="sec" id="paket"><h3>Pilih paket</h3><span>sekali bayar</span></div>
+ <span class="phint" id="phint">🔥 Promo 50% untuk 100 pembeli pertama masih berlaku. <a href="#promo">Ambil promo</a></span>
  <div class="card pk rv"><h4>Finansia Starter</h4><div class="p">Rp 49rb</div>
-  <ul><li>Dashboard ringkasan keuangan</li><li>Catat pemasukan &amp; pengeluaran</li><li>Report, Spending, Income</li></ul>
-  <a class="btn o" href="https://lynk.id/finansiaid/0plddjy5l106" target="_blank" rel="noopener">Pilih Starter</a></div>
+  <ul><li>Paket pencatatan: dashboard ringkasan keuangan</li><li>Catat pemasukan &amp; pengeluaran</li><li>Report, Spending, Income</li><li>Bisa upgrade ke Plus/Pro kapan saja</li></ul>
+  <a class="btn o" href="https://lynk.id/finansiaid/0plddjy5l106" target="_blank" rel="noopener">Pilih Starter</a>
+  <a class="btn o dmb" data-demo="starter" href="#demo" target="_blank" rel="noopener">Coba demo Starter</a></div>
  <div class="card pk f rv"><span class="b">⭐ POPULER</span><h4>Finansia Plus</h4><div class="p">Rp 99rb</div>
   <ul><li>Semua fitur Starter</li><li>Budgeting &amp; Budget Progress</li><li>Monitor pengawas budget</li></ul>
-  <a class="btn" href="https://lynk.id/finansiaid/3lgeekq07npe" target="_blank" rel="noopener">Pilih Plus</a></div>
+  <a class="btn" href="https://lynk.id/finansiaid/3lgeekq07npe" target="_blank" rel="noopener">Pilih Plus</a>
+  <a class="btn o dmb" data-demo="plus" href="#demo" target="_blank" rel="noopener">Coba demo Plus</a></div>
  <div class="card pk rv"><h4>Finansia Pro</h4><div class="p">Rp 149rb</div>
   <ul><li>Semua fitur Plus</li><li>Modul Investasi (portofolio)</li><li>Insight Keuangan &amp; semua add-on</li></ul>
-  <a class="btn o" href="https://lynk.id/finansiaid/pgollgmew87m" target="_blank" rel="noopener">Pilih Pro</a></div>
+  <a class="btn o" href="https://lynk.id/finansiaid/pgollgmew87m" target="_blank" rel="noopener">Pilih Pro</a>
+  <a class="btn o dmb" data-demo="pro" href="#demo" target="_blank" rel="noopener">Coba demo Pro</a></div>
+
+
+ <div class="sec" id="lisensi"><h3>Aturan lisensi</h3><span>1 akun Google</span></div>
+ <div class="card gr rv"><ul>
+  <li><b>1 lisensi berlaku untuk 1 akun Google.</b> Aplikasi Finansia One terpasang di akun Google yang kamu daftarkan.</li>
+  <li><b>Boleh tambah aplikasi di akun yang sama.</b> Tidak perlu beli lisensi baru selama masih memakai akun Google yang sama.</li>
+  <li><b>Maksimal 10 aplikasi Finansia One per akun Google.</b> Jadi 1 akun bisa punya sampai 10 aplikasi pencatatan yang berbeda, misalnya keuangan pribadi, rumah tangga, dan usaha kecil.</li>
+  <li><b>Akun Google lain butuh lisensi sendiri.</b> Lisensi tidak bisa dipindah atau dibagikan ke orang lain.</li>
+ </ul></div>
+
+ <div class="sec" id="garansi"><h3>Yang kamu dapat di setiap paket</h3><span>garansi &amp; dukungan</span></div>
+ <div class="card gr rv"><ul>
+  <li><b>Update otomatis oleh developer.</b> Developer memperbarui aplikasi secara berkala untuk pembaruan fitur, perbaikan bug, atau revisi. Aplikasimu ikut ter-update otomatis, tanpa kamu perlu mengunduh atau memasang ulang apa pun.</li>
+  <li><b>Update lifetime.</b> Pembaruan tidak dikenai biaya tambahan.</li>
+  <li><b>Garansi refund 3 hari kerja.</b> Refund bisa diajukan maksimal 3 hari kerja setelah checkout, bila kamu sudah mencoba berkali-kali tetapi aplikasinya tetap tidak bisa dibuat di HP-mu, walaupun sudah dibimbing langsung oleh developer. Cara mengajukannya ada di buku panduan.</li>
+  <li><b>Tanya sebelum beli.</b> Ada pertanyaan sebelum pembayaran? Chat Instagram <a href="https://www.instagram.com/finansiaid/" target="_blank" rel="noopener">@finansiaid</a>.</li>
+  <li><b>Bantuan pemasangan.</b> Kontak support dan grup komunitas Finansia One ada di buku panduan yang kamu terima setelah checkout.</li>
+  <li><b>Lisensi: 1 kode untuk 1 akun Google.</b> Boleh membuat sampai 10 aplikasi di akun yang sama. Simpan baik-baik kode lisensimu, jangan sampai hilang dan jangan dibagikan ke orang lain.</li>
+ </ul></div>
 
  <div class="sec" id="faq"><h3>FAQ</h3><span>biar nggak penasaran</span></div>
  <details><summary>Finansia One itu apa?</summary><p>Aplikasi web pencatatan keuangan pribadi yang berjalan di Google Sheets milik kamu: pemasukan, pengeluaran, budget, laporan, dan investasi dalam satu dashboard.</p></details>
@@ -223,7 +347,17 @@ summary{cursor:pointer;font-weight:700;font-size:15px}details p{color:var(--mut)
  <details><summary>Data aku disimpan di mana?</summary><p>Di Google Sheets milik akun Google kamu sendiri.</p></details>
  <details><summary>Bisa dipakai di HP?</summary><p>Bisa. Berbentuk web, jadi bisa dibuka dari browser HP maupun laptop.</p></details>
  <details><summary>Bisa upgrade paket nanti?</summary><p>Bisa. Fitur yang terkunci bisa dibuka lewat opsi upgrade di dalam aplikasi.</p></details>
- <details><summary>Cara belinya gimana?</summary><p>Klik tombol beli, pilih paket di halaman lynk.id, lalu selesaikan pembayaran. Panduan dikirim setelahnya.</p></details>
+ <details><summary>Cara belinya gimana?</summary><p>Klik tombol beli (atau <a href="#promo" style="color:var(--ac)">ambil promo 50%</a> kalau masih ada slot), pilih paket di halaman lynk.id, lalu selesaikan pembayaran. Buku panduan dikirim setelahnya.</p></details>
+ <details><summary>Kenapa muncul “Google hasn’t verified this app”?</summary><p>Normal. Finansia One adalah aplikasi Apps Script buatan independen yang belum melewati proses verifikasi Google. Aplikasi hanya bisa membaca dan menulis spreadsheet milikmu sendiri. Untuk lanjut: klik <b>Lanjutan</b>, lalu <b>Buka Finansia One</b>, lalu <b>Izinkan</b>. Izin bisa dicabut kapan saja di myaccount.google.com/permissions.</p></details>
+ <details><summary>Berapa lama pemasangannya?</summary><p>Sekitar 10 menit dengan mengikuti panduan, tanpa coding.</p></details>
+ <details><summary>Apakah data keuanganku dikirim ke server kalian?</summary><p>Tidak. Data keuangan tersimpan di Google Sheets milik akun Google kamu. Yang dikirim ke server lisensi hanya kode lisensi dan email akun untuk validasi.</p></details>
+ <details><summary>Update gratis selamanya?</summary><p>Ya, update lifetime tanpa biaya tambahan.</p></details>
+ <details><summary>Bagaimana cara update aplikasinya?</summary><p>Kamu tidak perlu melakukan apa-apa. Update dilakukan hanya oleh developer, secara berkala, untuk pembaruan fitur, perbaikan bug, atau revisi. Aplikasi di akunmu otomatis ikut ter-update, jadi tidak ada kode yang perlu kamu salin atau pasang ulang.</p></details>
+ <details><summary>Boleh dipakai bersama pasangan?</summary><p>1 lisensi untuk 1 akun Google, dan tidak boleh dibagikan ke orang lain. Kalau mau dipakai berdua, kalian bisa memakai akun Google yang sama untuk satu aplikasi bersama (misalnya keuangan rumah tangga). Kalau pasanganmu mau punya aplikasi di akun Google-nya sendiri, ia perlu lisensi sendiri.</p></details>
+ <details><summary>Bisa buat lebih dari satu aplikasi?</summary><p>Bisa. Dalam 1 akun Google yang sama kamu boleh menambah aplikasi Finansia One tanpa beli lisensi baru, maksimal 10 aplikasi. Jadi 1 akun bisa punya 10 aplikasi pencatatan yang berbeda.</p></details>
+ <details><summary>Mau tanya dulu sebelum membeli?</summary><p>Chat saja lewat Instagram <a href="https://www.instagram.com/finansiaid/" target="_blank" rel="noopener" style="color:var(--ac)">@finansiaid</a>. Pertanyaan soal paket, cara pemasangan, atau promo dijawab di sana.</p></details>
+ <details><summary>Bagaimana kalau butuh bantuan setelah membeli?</summary><p>Setelah checkout kamu menerima buku panduan. Kontak support dan grup komunitas ada di dalamnya.</p></details>
+ <details><summary>Ada garansi refund?</summary><p>Ada. Refund bisa diajukan maksimal <b>3 hari kerja setelah checkout</b>, dengan kondisi: kamu sudah mencoba berkali-kali mengikuti panduan, tetapi aplikasinya tetap tidak bisa dibuat di HP-mu walaupun sudah dibimbing langsung oleh developer. Cara mengajukannya ada di buku panduan.</p></details>
 
  <div class="sec"><h3>Giliranmu</h3><span>mulai dari catatan pertama</span></div>
  <div class="card chat rv">
@@ -238,19 +372,90 @@ summary{cursor:pointer;font-weight:700;font-size:15px}details p{color:var(--mut)
   <div class="bub me">Gimana kondisi keuanganku?</div>
   <div class="bub"><b>Dashboard</b>, <b>Monitor</b>, dan <b>Report</b> langsung terupdate <span class="ok">✓</span><br>Monitor: masih <b>aman</b> dibelanjakan hari ini.</div>
   <a class="btn" href="https://lynk.id/finansiaid" target="_blank" rel="noopener" style="margin-top:14px">Mulai catat keuanganmu</a>
+  <a class="btn o" href="#demo" style="margin:10px 0 0">Coba demo dulu</a>
   <div class="price" style="text-align:center;margin:0">Rp 49rb · sekali bayar · tanpa langganan</div>
  </div>
  <div class="end">© 2026 Finansia One · sampai jumpa di dashboard 👋</div>
 </div>
+<div class="md" id="pm" hidden><div class="mb" role="dialog" aria-modal="true" aria-labelledby="pmt">
+ <button type="button" class="mx" id="pmx" aria-label="Tutup">×</button>
+ <h3 id="pmt">Kode promo 50% kamu 🎉</h3>
+ <p>Salin kode ini. Tempel di kolom voucher saat checkout kalau belum terisi otomatis.</p>
+ <div class="mc"><code id="mcode"></code><button type="button" id="mcopy">Salin</button></div>
+ <p style="margin-bottom:8px"><b style="color:var(--tx)">Pilih paket untuk checkout:</b></p>
+ <a class="btn o" data-ck="starter" target="_blank" rel="noopener">Starter <small>Rp 24.500</small></a>
+ <a class="btn" data-ck="plus" target="_blank" rel="noopener">Plus <small>Rp 49.500</small></a>
+ <a class="btn o" data-ck="pro" target="_blank" rel="noopener">Pro <small>Rp 74.500</small></a>
+</div></div>
 <div id="lb"><img alt=""></div>
 <script>
 const r=document.documentElement,t=document.getElementById('tg');
 t.onclick=()=>{const l=r.dataset.theme==='light';r.dataset.theme=l?'':'light';t.textContent=l?'🌙':'☀️'};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+/* ====== PENGATURAN (edit di sini) ====== */
+const CFG={
+ DEMO:{
+  starter:'https://script.google.com/macros/s/AKfycbz9Or36NUbDDL4FJrTePDKkB8XAm01uFJV70fPori7BY_pEwGQsXtL0Ali8pD1QojKhfQ/exec',
+  plus:'https://script.google.com/macros/s/AKfycbySzHazL7CZAgcKbgGYZMesItCaf4iIVYTTze_XhDKhGLYYx-MRu80-7yB7wpgQLe-E/exec',
+  pro:'https://script.google.com/macros/s/AKfycbwLVrURn_VkS6jHpUrd-yG5D_G7U9-klhR_5QAkQixwnQokmHmnYASYdQDdn6r0Z70w2A/exec?b=1oYFgKfCadRjQKgPxBpCzeixdwnk5723KXeALlvtrKys'
+ },
+ PROMO:{
+  KODE:'FINANSIA50',   // sama persis dengan kode voucher di dashboard lynk.id
+  KUOTA:100,           // sama dengan batas pemakaian voucher di lynk.id
+  API:'',              // URL /exec Apps Script counter (lihat PANDUAN-COUNTER-PROMO.md). Kosong = counter angka disembunyikan
+  PARAM:'voucher'      // nama parameter di URL checkout; kosongkan bila lynk.id tidak mendukung
+ },
+ PAKET:{
+  starter:{harga:49000,link:'https://lynk.id/finansiaid/0plddjy5l106'},
+  plus:{harga:99000,link:'https://lynk.id/finansiaid/3lgeekq07npe'},
+  pro:{harga:149000,link:'https://lynk.id/finansiaid/pgollgmew87m'}
+ }
+};
+document.querySelectorAll('[data-demo]').forEach(a=>a.href=CFG.DEMO[a.dataset.demo]);
+
+/* ====== PROMO 50% ====== */
+(function(){
+ const P=CFG.PROMO,K='fn_promo_cid';
+ const pgt=document.getElementById('pgt'),pgb=document.getElementById('pgb'),pgr=document.getElementById('pgr'),go=document.getElementById('pgo'),pm=document.getElementById('pm'),hint=document.getElementById('phint');
+ let count=null;                       // null = counter belum tersambung
+ const api=(a,cid)=>fetch(P.API+'?a='+a+(cid?'&cid='+cid:'')+'&t='+Date.now()).then(r=>r.json());
+ function draw(){
+  if(count===null){pgt.innerHTML='Kuota promo: <b>'+P.KUOTA+'</b> pembeli pertama';pgr.style.display='none';return}
+  pgr.style.display='';pgb.style.width=(count/P.KUOTA*100)+'%';pgr.setAttribute('aria-valuenow',count);
+  pgt.innerHTML='<b>'+count+'/'+P.KUOTA+'</b> kode promo sudah diambil';
+  if(count>=P.KUOTA){go.textContent='Kuota promo sudah habis';go.classList.add('off');go.disabled=true;if(hint)hint.style.display='none'}
+ }
+ function cid(){let c='';try{c=localStorage.getItem(K)||''}catch(e){}return c}
+ function newCid(){return Array.from(crypto.getRandomValues(new Uint8Array(12))).map(b=>b.toString(16).padStart(2,'0')).join('')}
+ function openModal(){
+  document.getElementById('mcode').textContent=P.KODE;
+  document.querySelectorAll('[data-ck]').forEach(a=>{const x=CFG.PAKET[a.dataset.ck].link+'/checkout';a.href=P.PARAM?x+'?'+P.PARAM+'='+encodeURIComponent(P.KODE):x});
+  pm.hidden=false;
+  try{navigator.clipboard.writeText(P.KODE)}catch(e){}
+ }
+ go.onclick=async()=>{
+  if(go.disabled)return;
+  let c=cid();
+  if(P.API&&!c){                        // orang baru: hitung 1 kali saja per perangkat
+   c=newCid();
+   try{const r=await api('claim',c);count=r.count;try{localStorage.setItem(K,c)}catch(e){}draw()}catch(e){}
+  }
+  openModal();
+ };
+ document.getElementById('pmx').onclick=()=>pm.hidden=true;
+ pm.onclick=e=>{if(e.target===pm)pm.hidden=true};
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')pm.hidden=true});
+ document.getElementById('mcopy').onclick=function(){try{navigator.clipboard.writeText(P.KODE);this.textContent='Tersalin ✓'}catch(e){this.textContent='Salin manual'}};
+ draw();
+ if(P.API)api('get').then(r=>{count=r.count;draw()}).catch(()=>{});
+})();
 const lb=document.getElementById('lb');
 document.querySelectorAll('.car img,.hs img,.ph img').forEach(i=>i.onclick=()=>{lb.firstElementChild.src=i.src;lb.style.display='flex'});
 lb.onclick=()=>lb.style.display='none';
 document.querySelectorAll('.ar').forEach(b=>b.onclick=()=>{const c=b.parentElement.firstElementChild;c.scrollBy({left:(b.classList.contains('r')?1:-1)*c.clientWidth*0.8,behavior:'smooth'})});
 
+
+const f2=document.querySelector('.bgfx');for(let i=0;i<46;i++){const s=document.createElement('s');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(-Math.random()*3.5)+'s';s.style.animationDuration=(2.5+Math.random()*3)+'s';f2.appendChild(s)}
 </script></body></html>
